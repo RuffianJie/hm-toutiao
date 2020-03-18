@@ -64,7 +64,6 @@ export default {
       }
     }
   },
-
   methods: {
     login () {
       // 1.对整个表单进行校验

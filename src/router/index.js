@@ -2,6 +2,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// 导入sessionStorage封装函数
+import store from '@/store'
+
 // 导入路由
 import Login from '@/views/login'
 import Home from '@/views/home'
@@ -14,10 +17,41 @@ import Comment from '@/views/comment'
 import Fans from '@/views/fans'
 import Setting from '@/views/setting'
 
-// 导入sessionStorage封装函数
-import store from '@/store'
+// 第一种 路由懒加载 一个路由就相当于一个js文件
+// const Login = () => import('@/views/login')
+// const Home = () => import('@/views/home')
+// const Welcome = () => import('@/views/welcome')
+// const Article = () => import('@/views/article')
+// const NotFound = () => import('@/views/404')
+// const Image = () => import('@/views/image')
+// const Publish = () => import('@/views/publish')
+// const Comment = () => import('@/views/comment')
+// const Fans = () => import('@/views/fans')
+// const Setting = () => import('@/views/setting')
 
 Vue.use(VueRouter)
+
+// const router = new VueRouter({
+//   routes: [
+//     // 第二种写法(推荐) 路由懒加载  直接在路由组件上定义
+//     { path: '/login', name: 'login', component: () => import('@/views/login') },
+//     {
+//       path: '/',
+//       component: () => import('@/views/home'),
+//       children: [
+//         { path: '/', name: 'welcome', component: () => import('@/views/welcome') },
+//         { path: '/article', name: 'article', component: () => import('@/views/article') },
+//         { path: '/image', name: 'image', component: () => import('@/views/image') },
+//         { path: '/publish', name: 'publish', component: () => import('@/views/publish') },
+//         { path: '/comment', name: 'comment', component: () => import('@/views/comment') },
+//         { path: '/fans', name: 'fans', component: () => import('@/views/fans') },
+//         { path: '/setting', name: 'setting', component: () => import('@/views/setting') }
+//       ]
+//     },
+//     // 路径404
+//     { path: '*', name: '404', component: () => import('@/views/404') }
+//   ]
+// })
 
 const router = new VueRouter({
   routes: [
